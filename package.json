@@ -1,0 +1,52 @@
+{
+    "name": "sp_backend",
+    "author": "SamuelNayo",
+    "license": "ISC",
+    "version": "1.0.0",
+    "description": "This project is built with node.js, postgreSQL, and sequelize.",
+    "bugs": {
+        "url": "https://github.com/Societe-Petroliere/sp_backend/issues"
+    },
+    "homepage": "https://github.com/Societe-Petroliere/sp_backend#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Societe-Petroliere/sp_backend.git"
+    },
+    "main": "index.js",
+    "scripts": {
+    "start:dev": "nodemon --exec babel-node src/index.js",
+    "migrate": "sequelize db:migrate && npm run admins",
+    "migrate:reset": "sequelize db:migrate:undo:all && npm run migrate",
+    "seed": "sequelize db:seed:all",
+    "seed:reset": "sequelize db:seed:undo:all",
+    "super-admin-role:create": "babel-node src/database/createSuperAdminRole.js",
+    "super-admin:create": "babel-node src/database/createSuperAdmin.js",
+    "admin-role:create": "babel-node src/database/createAdminRole.js",
+    "admin:create": "babel-node src/database/createAdmin.js",
+    "admins": "npm run super-admin-role:create && npm run super-admin:create",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@babel/cli": "^7.15.7",
+        "@babel/core": "^7.15.5",
+        "@babel/node": "^7.15.4",
+        "@babel/plugin-transform-runtime": "^7.15.0",
+        "@babel/polyfill": "^7.12.1",
+        "@babel/preset-env": "^7.15.6",
+        "@babel/runtime": "^7.15.4",
+        "babel-register": "^6.26.0",
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "joi": "^17.4.2",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.13",
+        "pg": "^8.7.1",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.6.5",
+        "sequelize-cli": "^6.2.0"
+    }
+}
