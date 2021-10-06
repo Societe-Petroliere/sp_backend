@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { config } from 'dotenv';
-import services from '../services/role';
+import services from '../services/roleService';
 import models from './models';
 
 config();
@@ -14,7 +14,7 @@ const createAdmin = async () => {
 
         const role = await findRoleByName(roleName);
         if (!role) {
-            console.log(`FATAL: create ${roleName} role first.[Hint: run 'npm run manager-role:create' to create manager role]`);
+            console.log(`FATAL: create ${roleName} role first.[Hint: run 'npm run admin-role:create' to create admin role]`);
             return;
         }
         const hashedPswd = process.env.ADMIN_PASSWORD;
@@ -24,13 +24,14 @@ const createAdmin = async () => {
             lastname: 'Nziza',
             telephone: '',
             email: 'angelus.nziza@gmail.com',
-            password: 'Test123!.',
+            password: `A${hashedPswd}`,
             gender: 'Male',
             age: 30,
             roleId: 2,
             id_no: 123456,
             passport_no: 123444,
             user_image: 'https://res.cloudinary.com/samuelnayo/image/upload/v1613915506/k0bl3tldlrh6ryhql1mb.png',
+            is_verified: true,
             createdAt: new Date(),
             updatedAt: new Date()
         },
@@ -39,7 +40,7 @@ const createAdmin = async () => {
             lastname: 'Bizimana',
             telephone: '',
             email: 'emmanuel.bizimana@gmail.com',
-            password: 'Test123!.',
+            password: `E${hashedPswd}`,
             gender: 'Male',
             age: 28,
             roleId: 2,
@@ -47,6 +48,7 @@ const createAdmin = async () => {
             id_no: 123456,
             passport_no: 123444,
             user_image: '',
+            is_verified: false,
             createdAt: new Date(),
             updatedAt: new Date()
         };

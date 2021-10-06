@@ -1,6 +1,6 @@
 import models from './models';
 
-const { userRole } = models;
+const { UserRole } = models;
 
 const adminRole = async () => {
     const role = {
@@ -9,7 +9,7 @@ const adminRole = async () => {
     createdAt: new Date(),
     updatedAt: new Date()
     };
-    await userRole.create(role);
+    await UserRole.create(role);
     console.log('Admin role created successfully!');
 };
 

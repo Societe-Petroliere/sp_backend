@@ -2,18 +2,6 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     
     await queryInterface.bulkInsert('UserRoles', [
-      // {
-      //   name: 'SUPER_ADMIN',
-      //   description: 'This is a super administrator',
-      //   createdAt: new Date(),
-      //   updatedAt: new Date()
-      // },
-      // {
-      //   name: 'ADMIN',
-      //   description: 'This is an administrator',
-      //   createdAt: new Date(),
-      //   updatedAt: new Date()
-      // },
       {
         name: 'CONTENT_CREATOR',
         description: 'This is a content creator',
