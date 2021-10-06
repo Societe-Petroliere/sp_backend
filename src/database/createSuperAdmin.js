@@ -13,7 +13,7 @@ const createSuperAdmin = async () => {
 
         const role = await findRoleByName(roleName);
         if (!role) {
-            console.log(`FATAL: create ${roleName} role first.[Hint: run 'npm run manager-role:create' to create manager role]`);
+            console.log(`FATAL: create ${roleName} role first.[Hint: run 'npm run super-admin-role:create' to create super admin role]`);
             return;
         }
         const hashedPswd = process.env.ADMIN_PASSWORD;

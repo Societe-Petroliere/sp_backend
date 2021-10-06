@@ -14,17 +14,20 @@
     },
     "main": "index.js",
     "scripts": {
-    "start:dev": "nodemon --exec babel-node src/index.js",
-    "migrate": "sequelize db:migrate && npm run admins",
-    "migrate:reset": "sequelize db:migrate:undo:all && npm run migrate",
-    "seed": "sequelize db:seed:all",
-    "seed:reset": "sequelize db:seed:undo:all",
-    "super-admin-role:create": "babel-node src/database/createSuperAdminRole.js",
-    "super-admin:create": "babel-node src/database/createSuperAdmin.js",
-    "admin-role:create": "babel-node src/database/createAdminRole.js",
-    "admin:create": "babel-node src/database/createAdmin.js",
-    "admins": "npm run super-admin-role:create && npm run super-admin:create",
-    "test": "echo \"Error: no test specified\" && exit 1"
+        "start:dev": "nodemon --exec babel-node src/index.js",
+        "migrate": "sequelize db:migrate && npm run super:admin && npm run admins",
+        "migrate:reset": "sequelize db:migrate:undo:all && npm run migrate",
+        "seed": "sequelize db:seed:all",
+        "seed:reset": "sequelize db:seed:undo:all",
+
+        "super-admin-role:create": "babel-node src/database/createSuperAdminRole.js",
+        "super-admin:create": "babel-node src/database/createSuperAdmin.js",
+        "super:admin": "npm run super-admin-role:create && npm run super-admin:create",
+
+        "admin-role:create": "babel-node src/database/createAdminRole.js",
+        "admin:create": "babel-node src/database/createAdmin.js",
+        "admins": "npm run admin-role:create && npm run admin:create",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
         "@babel/cli": "^7.15.7",
